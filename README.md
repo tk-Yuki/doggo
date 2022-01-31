@@ -1,24 +1,37 @@
-# README
+# doggo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+犬を飼っている様々なユーザーと、犬とお出かけできるスポットについて共有できるサイト。
 
-Things you may want to cover:
+### サイトテーマ
+犬とお出かけできるスポットのシェア。
 
-* Ruby version
+### テーマを選んだ理由
+私は犬を飼っていて、休日には犬と近所を散歩したり、ドッグランに行ったりします。
+その際、ドッグランの情報や犬も入店できるレストランなどについて検索をすることが多いので、
+わかりやすく情報収集ができたり、行ってみたスポットについて共有し合えるような場を作ることができれば
+犬を飼う方がもっと楽しく愛犬との休日を楽しめるのではないかと思い、このテーマにしました。
 
-* System dependencies
+### ターゲットユーザ
+犬を飼っていて一緒にお出かけしたいと考えている方や犬が好きな方。
 
-* Configuration
+### 主な利用シーン
+愛犬とのお出かけの感想を共有したい時。
+他の方のおすすめスポットや、気になるスポットを利用した方の感想を知りたい時などに活用できます。
 
-* Database creation
+## 設計書
+<...>
 
-* Database initialization
+## チャレンジ要素一覧
+<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>
 
-* How to run the test suite
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
