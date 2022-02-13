@@ -10,6 +10,53 @@
   </head>
 
   <body>
+    <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+      <span><%= link_to "doggo",root_path %></span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "home", root_path ,class:"link"%>
+            </li>
+            <li>
+             <%= link_to "map", places_path ,class:"link"%>
+            </li>
+            <li>
+              <%= link_to "マイページ", user_path(user_id) ,class:"link"%>
+            </li>
+            <li>
+              <%= link_to "新規投稿",new_post_path ,class:"link"%>
+            </li>
+          　<li>
+              <%= link_to "ログアウト",destroy_user_session_path, method: :delete  ,class:"link"%>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "home", root_path ,class:"link"%>
+            </li>
+            <li>
+              <%= link_to "map", places_path ,class:"link" %>
+            </li>
+            <li>
+              <%= link_to "新規登録", new_user_registration_path, class:"link"%>
+            </li>
+            <li>
+              <%= link_to "ログイン", new_user_session_path, class:"link"%>
+            </li>
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
+    </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
