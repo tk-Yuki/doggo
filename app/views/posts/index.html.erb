@@ -3,6 +3,8 @@
   <%= attachment_image_tag post.user.profile_image, :profile_image,:fill, 100, 100, format:'jpeg', fallback:"" %>
   <%= post.user.name %>d
   <%= attachment_image_tag post, :image %>
-  <p><%= post.body %></p>
+  <%= post.created_at.strftime('%Y/%m/%d') %>
+  <!--投稿日時-->
+  <%= post.body %>
 </div>
 <% end %>

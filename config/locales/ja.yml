@@ -1,0 +1,9 @@
+ja:
+  enums:
+    place:
+      category:
+        dog_run: 'ドッグラン'
+        dog_cafe: 'ドッグカフェ'
+        restaurant: 'カフェ・レストラン（犬の入店可）'
+        park: '公園'
+        nature: '自然'

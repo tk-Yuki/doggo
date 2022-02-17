@@ -1,2 +1,12 @@
-<h1>Places#show</h1>
-<p>Find me in app/views/places/show.html.erb</p>
+<%= @place.name %>
+<%= attachment_image_tag @place, :image, format: 'jpeg', size: "300x300" %><br>
+<%= @place.category_i18n %>
+<%= @place.address %>
+<%= @place.price %>
+<%= @place.detail %>
+<%= link_to 'スポット一覧ページへ', places_path %>
+
+
+
+<%= link_to '編集する', edit_place_path(@place.id) %><br>
+<%= link_to '削除する', place_path(@place.id),method: :delete, "data-confirm"=>"本当に消しますか？" %><br>
