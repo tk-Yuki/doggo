@@ -1,7 +1,18 @@
 class PlacesController < ApplicationController
 
   def index
-    @places = Place.all
+    @places_all = Place.all
+
+    @places = []
+    @places_all.each do |place|
+      @places += [
+        id: place.id,
+        latitude: place.latitude,
+        longitude: place.longitude,
+        name: place.name,
+        image: Refile.attachment_url(place, :image)
+        ]
+    end
   end
 
   def show

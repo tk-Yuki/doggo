@@ -4,6 +4,38 @@
 <%= @place.address %>
 <%= @place.price %>
 <%= @place.detail %>
+
+<div id="map" style="width: 100%; height: 300px;"></div>
+
+<script>
+  function initMap() {
+    let map;
+
+    geocoder = new google.maps.Geocoder()
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
+      center: {
+        lat: <%= @place.latitude %>,
+        lng: <%= @place.longitude %>
+      },
+      zoom: 12,
+    });
+
+    marker = new google.maps.Marker({
+      // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
+      position: {
+        lat: <%= @place.latitude %>,
+        lng: <%= @place.longitude %>
+      },
+      map: map
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap" async defer></script>
+
+
+
 <%= link_to 'スポット一覧ページへ', places_path %>
 
 

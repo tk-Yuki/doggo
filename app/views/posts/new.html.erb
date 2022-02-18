@@ -1,11 +1,11 @@
 <h3>新規投稿を作成</h3>
-<%= attachment_image_tag @user, :profile_image,:fill, 100, 100, format:'jpeg', fallback:"" %>
+<%= attachment_image_tag @user, :profile_image,:fill, 100, 100, format:'jpeg', fallback:"", class: "profile_image"%>
 <%= @user.name %>
 
 <%= form_with model: @post, url: posts_path, local:true do |f| %>
   <h4>画像</h4>
   <%= f.attachment_field :image %>
-  <%= f.collection_select :place_id, Place.all, :name %>
+  <%= f.collection_select :place_id, @place, :id, :name %>
   <h4>本文</h4>
   <%= f.text_area :body %>
   <%= f.submit '投稿' %>

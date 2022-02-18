@@ -26,7 +26,7 @@
               <%= link_to "home", root_path ,class:"link"%>
             </li>
             <li>
-             <%= link_to "map", places_path ,class:"link"%>
+             <%= link_to "map", places_path ,class:"link", data: { turbolinks: 'false' }%>
             </li>
             <li>
               <%= link_to "マイページ", user_path(current_user) ,class:"link"%>

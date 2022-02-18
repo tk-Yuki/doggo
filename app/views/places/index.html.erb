@@ -1,10 +1,41 @@
-<% @places.each do |place| %>
-<div>
-  <%= link_to place_path(place.id) do %>
-  <%= attachment_image_tag place, :image, format: 'jpeg', size: "300x300" %><br>
-  <%= place.name %>
-  <% end %>
-  <%= place.category_i18n %>
-  <%= place.address %>
-</div>
-<% end %>
+<div id="map" style="width: 100%; height: calc(100vh - 40px);"></div>
+
+<script>
+  function initMap() {
+    let map;
+
+    let places = <%= raw @places.to_json %>
+
+    geocoder = new google.maps.Geocoder()
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
+      center: {
+        lat: 34.9474535,
+        lng: 134.9839621
+      },
+      zoom: 8,
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+
+    for (i = 0; i < places.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(places[i]['latitude'], places[i]['longitude']),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(
+            '<div><img class="marker-image" src=' + places[i]['image'] + '></div>' +
+            '<a data-turbolinks="false" href="/places/' + places[i]['id'] + '">' + places[i]['name'] + '</a>'
+            );
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap" async defer></script>

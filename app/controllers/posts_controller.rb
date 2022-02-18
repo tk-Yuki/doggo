@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @posts = Post.page(params[:page]).reverse_order
   end
 
   def show
@@ -12,12 +13,13 @@ class PostsController < ApplicationController
   def new
     @user = current_user
     @post = Post.new
+    @place = Place.all
   end
 
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save!
+    @post.save
     redirect_to posts_path
   end
 

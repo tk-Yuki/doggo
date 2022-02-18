@@ -1,5 +1,5 @@
 <h3>投稿を編集</h3>
-<%= attachment_image_tag @user, :profile_image,:fill, 100, 100, format:'jpeg', fallback:"" %>
+<%= attachment_image_tag @user, :profile_image,:fill, 100, 100, format:'jpeg', fallback:"", class: "profile_image" %>
 <%= @user.name %>
 
 <%= form_with model: @post, url: posts_path, local:true do |f| %>
