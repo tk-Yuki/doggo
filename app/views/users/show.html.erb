@@ -1,25 +1,39 @@
-<%= attachment_image_tag @user, :profile_image,:fill, 100, 100, format:'jpeg', fallback:"", class: "profile_image" %>
-<%= @user.name %>
-<%= link_to "プロフィールを編集", edit_user_path(@user.id) %>
-<% if current_user != @user %>
-  <% if current_user.following?(@user) %>
-    <%= link_to 'フォロー外す', user_relationships_path(@user.id), method: :delete, class: "btn-sm btn-danger" %>
-    <% else %>
-    <%= link_to 'フォローする', user_relationships_path(@user.id), method: :POST, class:"btn-sm btn-success" %>
-  <% end %>
-<% end %>
-
-<%= link_to follows_user_path(@user) do %>
-  <h6>フォロー<%= @following_users.count %></h6>
-<% end %>&nbsp;&nbsp;
-<%= link_to followers_user_path(@user) do %>
-  <h6>フォロワー<%= @follower_users.count %></h6>
-<% end %>
-
-<% @posts.each do |post| %>
-<!--<div>-->
-  <%= link_to post_path(post.id) do %>
-    <%= attachment_image_tag post, :image %>
-  <% end %>
-<% end %>
-
+<div class="container wf-mplus1p">
+  <div class="row">
+		<div class="col-sm-2">
+			<%= attachment_image_tag @user, :profile_image,:fill, 100, 100, format:'jpeg', fallback:"", class: "profile_image" %>
+		</div>
+		<div class="col-sm-6">
+			<%= @user.name %>
+			<%= link_to "プロフィールを編集", edit_user_path(@user.id) %></br>
+      <%= link_to follows_user_path(@user) do %>
+        <span>フォロー<%= @following_users.count %></span>
+      <% end %>
+      <%= link_to followers_user_path(@user) do %>
+        <span>フォロワー<%= @follower_users.count %></span>
+      <% end %>
+		</div>
+		<div class="col-sm-4">
+		  <% if current_user != @user %>
+        <% if current_user.following?(@user) %>
+          <%= link_to 'フォローを外す', user_relationship_path(@user.id), method: :delete, class: "btn-sm btn-danger" %>
+        <% else %>
+          <%= link_to 'フォローする', user_relationships_path(@user.id), method: :POST, class:"btn-sm btn-success" %>
+        <% end %>
+      <% end %>
+		</div>
+  </div>
+</div>
+<div class="container my-4 py-4 border-top">
+  <div class="columns is-multiline">
+    <% @posts.each do |post| %>
+      <div class="column is-4">
+        <figure class="image is-4by3">
+          <%= link_to post_path(post.id) do %>
+            <%= attachment_image_tag post, :image, size:"300x300" %>
+          <% end %>
+        </figure>
+      </div>
+    <% end %>
+  </div>
+</div>

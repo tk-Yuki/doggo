@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Doggo</title>
+    <title>doggo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
   </head>
 
   <body>
@@ -27,32 +29,32 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
               <% if user_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to "map", places_path ,class:"nav-link active", data: { turbolinks: 'false' }%>
+                  <%= link_to "map", places_path ,class:"nav-link active wf-mplus1p", data: { turbolinks: 'false' }%>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "マイページ", user_path(current_user) ,class:"nav-link active"%>
+                  <%= link_to "マイページ", user_path(current_user) ,class:"nav-link active wf-mplus1p"%>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "新規投稿",new_post_path ,class:"nav-link active"%>
+                  <%= link_to "新規投稿",new_post_path ,class:"nav-link active wf-mplus1p"%>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "ログアウト",destroy_user_session_path, method: :delete  ,class:"nav-link active"%>
+                  <%= link_to "ログアウト",destroy_user_session_path, method: :delete  ,class:"nav-link active wf-mplus1p"%>
                 </li>
               <% else %>
                 <li class="nav-item">
-                  <%= link_to "map", places_path ,class:"nav-link active" %>
+                  <%= link_to "map", places_path ,class:"nav-link active wf-mplus1p" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "新規登録", new_user_registration_path, class:"nav-link active"%>
+                  <%= link_to "新規登録", new_user_registration_path, class:"nav-link active wf-mplus1p"%>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "ログイン", new_user_session_path, class:"nav-link active"%>
+                  <%= link_to "ログイン", new_user_session_path, class:"nav-link active wf-mplus1p"%>
                 </li>
               <% end %>
             </ul>
             <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <input class="form-control me-2 wf-mplus1p" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success wf-mplus1p" type="submit">Search</button>
             </form>
           </div>
         </div>
