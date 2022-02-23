@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_13_053832) do
+ActiveRecord::Schema.define(version: 2022_02_23_045113) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -27,10 +27,17 @@ ActiveRecord::Schema.define(version: 2022_02_13_053832) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "place_images", force: :cascade do |t|
+    t.integer "place_id"
+    t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_place_images_on_place_"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "name"
     t.integer "category"
-    t.string "image_id"
     t.string "price"
     t.string "address"
     t.float "latitude"
@@ -68,6 +75,7 @@ ActiveRecord::Schema.define(version: 2022_02_13_053832) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "profile_image_id"
+    t.text "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -2,3 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.carousel-caption {
+  position: absolute;
+  top: 60%;
+  left: 10% !important;
+  right: 50% !important;
+}
+
+.carousel-caption p {
+  font-size: 2.5vw;
+}
+
+.slogan {
+  color: #008080;
+}

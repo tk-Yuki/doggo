@@ -17,6 +17,15 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// フォント設定
+.wf-mplus1p { font-family: "M PLUS 1p"; }
+
 .profile_image {
   border-radius: 50%;
 }
@@ -27,7 +36,11 @@
   object-fit: cover;
 }
 
-// フォント設定
-.wf-mplus1p { font-family: "M PLUS 1p"; }
 
-.wf-kokoro { font-family: "Kokoro"; }
+footer {
+  width: 100%;
+  padding: 15px 0;
+  margin: 30px auto 0;
+  text-align: center;
+  border-top: solid 5px #C0C0C0;
+}

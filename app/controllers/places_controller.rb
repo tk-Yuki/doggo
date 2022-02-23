@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
 
   def index
     @places_all = Place.all
@@ -10,13 +11,14 @@ class PlacesController < ApplicationController
         latitude: place.latitude,
         longitude: place.longitude,
         name: place.name,
-        image: Refile.attachment_url(place, :image)
+        image: Refile.attachment_url(place.place_images[0], :image)
         ]
     end
   end
 
   def show
     @place = Place.find(params[:id])
+    @posts = Post.all
   end
 
   def new
@@ -41,10 +43,15 @@ class PlacesController < ApplicationController
   end
 
   def destroy
+    @place = Place.find(params[:id])
+    @place.destroy
+    redirect_to places_path
   end
 
+  private
+
   def place_params
-    params.require(:place).permit(:image, :name, :category, :address, :price, :detail)
+    params.require(:place).permit(:name, :category, :address, :price, :detail, place_images_images: [])
   end
 
 end

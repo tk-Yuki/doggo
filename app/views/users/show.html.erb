@@ -1,11 +1,13 @@
 <div class="container wf-mplus1p">
   <div class="row">
 		<div class="col-sm-2">
-			<%= attachment_image_tag @user, :profile_image,:fill, 100, 100, format:'jpeg', fallback:"", class: "profile_image" %>
+			<%= attachment_image_tag @user, :profile_image, fallback: "icon.jpg", size:'100x100', class: "profile_image" %>
 		</div>
-		<div class="col-sm-6">
+		<div class="col-sm-6 xxx" style="padding-top: 30px;">
 			<%= @user.name %>
-			<%= link_to "プロフィールを編集", edit_user_path(@user.id) %></br>
+			<% if current_user ==@user %>
+			  <%= link_to "プロフィールを編集", edit_user_path(@user.id) %></br>
+			<% end %>
       <%= link_to follows_user_path(@user) do %>
         <span>フォロー<%= @following_users.count %></span>
       <% end %>
@@ -26,14 +28,18 @@
 </div>
 <div class="container my-4 py-4 border-top">
   <div class="columns is-multiline">
-    <% @posts.each do |post| %>
-      <div class="column is-4">
-        <figure class="image is-4by3">
-          <%= link_to post_path(post.id) do %>
-            <%= attachment_image_tag post, :image, size:"300x300" %>
-          <% end %>
-        </figure>
-      </div>
+    <% if @posts.empty? %>
+      <p>投稿がありません</p>
+    <% else %>
+      <% @posts.each do |post| %>
+        <div class="column is-4">
+          <figure class="image is-4by3">
+            <%= link_to post_path(post.id) do %>
+              <%= attachment_image_tag post, :image, :fill, 300, 300 %>
+            <% end %>
+          </figure>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

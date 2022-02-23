@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.save
-    redirect_to posts_path
+    redirect_to user_path(current_user)
   end
 
   def edit
@@ -36,6 +36,8 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path
   end
+
+  private
 
   def post_params
     params.require(:post).permit(:image, :body, :place_id)
