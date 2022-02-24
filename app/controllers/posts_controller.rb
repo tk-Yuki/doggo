@@ -32,9 +32,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Pist.find(params[:id])
+    @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    redirect_to user_path(current_user)
   end
 
   private
