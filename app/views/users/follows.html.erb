@@ -1,16 +1,15 @@
-<div class="cover-user-index">
-  <div class="container">
-    <div class="row justify-content-center">
-      <h1 class="font-weight-normal mt-5 mb-5">フォロー一覧</h1>
+<div class="container my-4 wf-mplus1p">
+    <div class="row">
+      <h3 class="mt-5 mb-5">フォロー一覧</h3>
     </div>
-    <div class="row justify-content-center">
+    <div class="row">
       <% @users.each do |user| %>
-      <div class="one-post card w-100">
+      <div class="one-post card col-4">
         <%= link_to user_path(user) do %>
-        <p class="caption h4"><%= user.name %></p>
+        <h5 class="caption"><%= user.name %></h5>
         <div class="d-flex">
           <%= attachment_image_tag @user, :profile_image, size: '100x100', fallback: "icon.jpg", class: "mb-3 mt-3 ml-3 profile-image" %>
-          <h4 class="ml-5"><%#= user.profile %></h4>
+          <p class="ml-5"><%#= user.profile %></p>
         </div>
         <p class="caption"><%= "#{user.posts.count} 投稿" %></p>
         <% end %>
@@ -18,5 +17,4 @@
       <% end %>
     </div>
     <%= paginate @users %>
-  </div>
 </div>

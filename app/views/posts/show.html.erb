@@ -1,6 +1,6 @@
 <div class="container my-5 wf-mplus1p">
   <div class="m-2">
-    <%= link_to user_path(@post.id) do %>
+    <%= link_to user_path(@post.user.id) do %>
     <%= attachment_image_tag @post.user, :profile_image, format:'jpeg', fallback:"icon.jpg", size:"70x70", class: "profile_image" %>
     <%= @post.user.name %></br>
     <% end %>
@@ -48,5 +48,5 @@
   <%= link_to '編集する', edit_post_path(@post.id) %><br>
   <%= link_to '削除する', post_path(@post.id),method: :delete, "data-confirm"=>"本当に消しますか？" %><br>
 <% end %>
-<%= link_to '<<スポット詳細ページへ戻る', place_path(@post.id) %>
+<%= link_to '<<スポット詳細ページへ', place_path(@post.place.id) %>
 </div>

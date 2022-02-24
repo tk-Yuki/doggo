@@ -6,7 +6,7 @@
   <%= form_with model: @post, url: posts_path, local:true do |f| %>
     <div class="m-3">
       <h4>画像</h4>
-      <%= f.attachment_field :image %>
+      <%= f.attachment_field :image, required: true %>
     </div>
     <div class="m-3">
       <h4>本文</h4>
