@@ -6,34 +6,38 @@
       <li data-target="#sample" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-    <div class="carousel-item active"><%= image_tag 'top1.jpg', class: "d-block w-100" %>
-      <div class="carousel-caption d-none d-sm-block">
-        <p>愛犬とのくらしを</p>
-        <p>もっと楽しむ</p>
+      <div class="carousel-item active">
+        <%= image_tag 'top1.jpg', class: "d-block w-100" %>
+        <div class="carousel-caption d-none d-sm-block">
+          <p>愛犬とのくらしを</p>
+          <p>もっと楽しむ</p>
+        </div>
       </div>
-    </div>
-    <div class="carousel-item"><%= image_tag 'top2.jpg', class: "d-block w-100" %>
-      <div class="carousel-caption d-none d-sm-block">
-        <p>ドッグランやカフェに</p>
-        <p>一緒にお出かけ</p>
+      <div class="carousel-item">
+        <%= image_tag 'top2.jpg', class: "d-block w-100" %>
+        <div class="carousel-caption d-none d-sm-block">
+          <p>ドッグランやカフェに</p>
+          <p>一緒にお出かけ</p>
+        </div>
       </div>
-    </div>
-    <div class="carousel-item"><%= image_tag 'top3.jpg', class: "d-block w-100" %>
-      <div class="carousel-caption d-none d-sm-block">
-        <p>犬好きの人とのつながりで</p>
-        <p>より充実した休日を</p>
+      <div class="carousel-item">
+        <%= image_tag 'top3.jpg', class: "d-block w-100" %>
+        <div class="carousel-caption d-none d-sm-block">
+          <p>犬好きの人とのつながりで</p>
+          <p>より充実した休日を</p>
+        </div>
       </div>
+      <a href="#sample" class="carousel-control-prev" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="sr-only">前の画像へ</span>
+      </a>
+      <a href="#sample" class="carousel-control-next" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="sr-only">次の画像へ</span>
+      </a>
     </div>
-    <a href="#sample" class="carousel-control-prev" data-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-      <span class="sr-only">前の画像へ</span>
-    </a>
-    <a href="#sample" class="carousel-control-next" data-slide="next">
-      <span class="carousel-control-next-icon"></span>
-      <span class="sr-only">次の画像へ</span>
-    </a>
   </div>
-</div>
+</div>  
 <div class="container wf-mplus1p">
   <h2 class="m-3 slogan">~愛犬とのくらしをもっと豊かに~</h2>
 </div>
@@ -46,8 +50,8 @@
   <%= link_to "new",new_place_path, class: "btn btn-outline-info m-3" %>
 </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

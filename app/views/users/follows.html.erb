@@ -1,20 +1,20 @@
 <div class="container my-4 wf-mplus1p">
-    <div class="row">
-      <h3 class="mt-5 mb-5">フォロー一覧</h3>
-    </div>
-    <div class="row">
-      <% @users.each do |user| %>
+  <div class="row">
+    <h3 class="mt-5 mb-5">フォロー一覧</h3>
+  </div>
+  <div class="row">
+    <% @users.each do |user| %>
       <div class="one-post card col-4">
         <%= link_to user_path(user) do %>
-        <h5 class="caption"><%= user.name %></h5>
-        <div class="d-flex">
-          <%= attachment_image_tag @user, :profile_image, size: '100x100', fallback: "icon.jpg", class: "mb-3 mt-3 ml-3 profile-image" %>
-          <p class="ml-5"><%#= user.profile %></p>
-        </div>
-        <p class="caption"><%= "#{user.posts.count} 投稿" %></p>
+          <h5 class="caption"><%= user.name %></h5>
+          <div class="d-flex">
+            <%= attachment_image_tag @user, :profile_image, size: '100x100', fallback: "icon.jpg", class: "mb-3 mt-3 ml-3 profile-image" %>
+            <p class="ml-5"><%#= user.profile %></p>
+          </div>
+          <p class="caption"><%= "#{user.posts.count} 投稿" %></p>
         <% end %>
       </div>
-      <% end %>
-    </div>
-    <%= paginate @users %>
+    <% end %>
+  </div>
+  <%= paginate @users %>
 </div>
