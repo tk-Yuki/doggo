@@ -4,6 +4,9 @@
   <%= form_with model: @place, url: place_path, local:true do |f| %>
     <div class="my-3 mx-1">
       <%= f.label "画像" %><br>
+      <% @place.place_images.each do |image| %>
+        <%= attachment_image_tag image, :image, :fill, 200, 200, format: 'jpeg' %><br>
+      <% end %>
       <%= f.attachment_field :place_images_images, multiple: true, required: true %>
     </div>
     <div class="m-1">
