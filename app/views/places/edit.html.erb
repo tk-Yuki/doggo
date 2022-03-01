@@ -3,7 +3,6 @@
 
   <%= form_with model: @place, url: place_path, local:true do |f| %>
     <div class="my-3 mx-1">
-      <%= f.label "画像" %><br>
       <div class="row my-3">
       <% @place.place_images.each do |image| %>
         <div class="col-3">
@@ -12,17 +11,18 @@
         </div>
       <% end %>
       </div>
-      <%= f.attachment_field :place_images_images, multiple: true, required: true %>
+      <p>※画像の追加</p>
+      <%= f.attachment_field :place_images_images, multiple: true %>
     </div>
-    <div class="m-1">
+    <div class="my-4 mx-1">
       <%= f.label "スポット名" %><br>
       <%= f.text_field :name, autofocus: true, class: "form-control", id: "exampleFormControlInput1",　required: true %>
     </div>
-    <div class="m-1">
+    <div class="my-4 mx-1">
       <%= f.label "場所" %><br>
       <%= f.text_field :address, autofocus: true, class: "form-control", id: "exampleFormControlInput1",　required: true %>
     </div>
-    <div class="m-1">
+    <div class="my-4 mx-1">
       <%= f.label "料金" %><br>
       <%= f.text_field :price, autofocus: true, class: "form-control", id: "exampleFormControlInput1",　required: true %>
     </div>
