@@ -6,7 +6,7 @@
       <div class="row my-3">
       <% @place.place_images.each do |image| %>
         <div class="col-3">
-          <%= attachment_image_tag image, :image, :fill, 200, 200, format: 'jpeg' %><br>
+          <%= attachment_image_tag image, :image, :fill, 200, 200, format: 'jpeg', class:"w-100" %><br>
           <%= link_to "削除" ,place_image_path(image), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-outline-warning btn btn-sm my-1" %>
         </div>
       <% end %>
