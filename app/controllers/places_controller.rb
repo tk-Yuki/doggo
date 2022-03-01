@@ -38,7 +38,15 @@ class PlacesController < ApplicationController
 
   def update
     @place = Place.find(params[:id])
-    @place.update(place_params)
+    # 既存の画像のお尻に新たらしくアップロードされた画像群を追加する
+    place_image_params = place_params["place_images_images"]
+    place_image_params.shift
+    place_image_params.each do |place_image_param|
+      pi = PlaceImage.new
+      pi.image = place_image_param
+      @place.place_images << pi
+    end
+    @place.update(place_params.except("place_images_images"))
     redirect_to places_path
   end
 

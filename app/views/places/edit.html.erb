@@ -4,9 +4,14 @@
   <%= form_with model: @place, url: place_path, local:true do |f| %>
     <div class="my-3 mx-1">
       <%= f.label "画像" %><br>
+      <div class="row my-3">
       <% @place.place_images.each do |image| %>
-        <%= attachment_image_tag image, :image, :fill, 200, 200, format: 'jpeg' %><br>
+        <div class="col-3">
+          <%= attachment_image_tag image, :image, :fill, 200, 200, format: 'jpeg' %><br>
+          <%= link_to "削除" ,place_image_path(image), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-outline-warning btn btn-sm my-1" %>
+        </div>
       <% end %>
+      </div>
       <%= f.attachment_field :place_images_images, multiple: true, required: true %>
     </div>
     <div class="m-1">
