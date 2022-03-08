@@ -2,18 +2,7 @@ class PlacesController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   def index
-    @places_all = Place.all
-
-    @places = []
-    @places_all.each do |place|
-      @places += [
-        id: place.id,
-        latitude: place.latitude,
-        longitude: place.longitude,
-        name: place.name,
-        image: Refile.attachment_url(place.place_images[0], :image)
-        ]
-    end
+    @places = Place.all_to_hash
   end
 
   def show
@@ -38,14 +27,7 @@ class PlacesController < ApplicationController
 
   def update
     @place = Place.find(params[:id])
-    # 既存の画像のお尻に新たらしくアップロードされた画像群を追加する
-    place_image_params = place_params["place_images_images"]
-    place_image_params.shift
-    place_image_params.each do |place_image_param|
-      pi = PlaceImage.new
-      pi.image = place_image_param
-      @place.place_images << pi
-    end
+    @place.add_place_images(place_params['place_images_images'])
     @place.update(place_params.except("place_images_images"))
     redirect_to places_path
   end

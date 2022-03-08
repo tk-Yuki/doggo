@@ -7,4 +7,24 @@ class Place < ApplicationRecord
 
   has_many :place_images, dependent: :destroy
   accepts_attachments_for :place_images, attachment: :image
+  
+  def self.all_to_hash
+    all.map do |place|
+      {
+        id: place.id,
+        latitude: place.latitude,
+        longitude: place.longitude,
+        name: place.name,
+        image: Refile.attachment_url(place.place_images[0], :image)
+      }
+    end
+  end
+
+  def add_place_images(params)
+    params.shift
+    params.each do |param|
+      place_image = PlaceImage.new(image: param)
+      self.place_images << place_image
+    end
+  end
 end

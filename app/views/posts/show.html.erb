@@ -45,7 +45,7 @@
     </div>
   <% end %>
   <% if @post.user == current_user %>
-    <%= link_to '編集する', edit_post_path(@post.id) %><br>
+    <%= link_to '編集する', edit_post_path(@post.id) %>|
     <%= link_to '削除する', post_path(@post.id),method: :delete, "data-confirm"=>"本当に消しますか？" %><br>
   <% end %>
   <%= link_to '<<スポット詳細ページへ', place_path(@post.place.id) %>
